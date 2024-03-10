@@ -22,7 +22,22 @@ chrome.contextMenus.onClicked.addListener(async (item, tab) => {
     });
 });
 
+chrome.commands.onCommand.addListener( function(command) {
+    if(Object.keys(generatorList).includes(command))
+        chrome.tabs.query({active: true, currentWindow: true}, async function (tabs) {
+            chrome.scripting.executeScript({
+                target: {
+                    tabId: tabs[0].id
+                },
+                function: setValueOnWebpage,
+                args: [await Promise.resolve(generatorList[command].function())],
+            });
+        });
+});
+
 function setValueOnWebpage(value) {
     document.activeElement.value = value
     document.activeElement.dispatchEvent(new Event('input', {}))
 }
+
+

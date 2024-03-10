@@ -12,11 +12,11 @@ export const generatorList = {
         title: 'СНИСЛ',
         function: snils,
     },
-    innfl: {
+    innIndividual: {
         title: 'ИНН ФЛ',
         function: innIndividual,
     },
-    innul: {
+    innLegal: {
         title: 'ИНН ЮЛ',
         function: innLegal,
     },
@@ -28,7 +28,7 @@ export const generatorList = {
         title: 'Номер телефона',
         function: phone,
     },
-    coracc: {
+    correspondentAccount: {
         title: 'Кореспондентский счёт',
         function: correspondentAccount,
     },
