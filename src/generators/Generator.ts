@@ -1,3 +1,3 @@
 export interface Generator {
-    generate(): string | Promise<string>
+    generate(): string | Promise<string>;
 }

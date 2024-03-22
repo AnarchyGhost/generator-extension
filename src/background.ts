@@ -1,7 +1,7 @@
 import {
-	addGeneratorsMenuItems,
-	addOnClickForMenuItems,
-	addShortcuts,
+    addGeneratorsMenuItems,
+    addOnClickForMenuItems,
+    addShortcuts,
 } from './background/main';
 
 addGeneratorsMenuItems();

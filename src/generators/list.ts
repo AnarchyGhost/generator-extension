@@ -9,68 +9,68 @@ import { SettlementAccountGenerator } from './implementation/SettlementAccountGe
 import { SnilsGenerator } from './implementation/SnilsGenerator';
 
 export interface GeneratorListItem {
-	title: string;
-	generator: Generator;
+    title: string;
+    generator: Generator;
 }
 
 export const generatorListMap: Map<string, GeneratorListItem> = new Map<
-	string,
-	GeneratorListItem
+    string,
+    GeneratorListItem
 >([
-	[
-		'snils',
-		{
-			title: 'СНИЛС',
-			generator: new SnilsGenerator(),
-		},
-	],
-	[
-		'innIndividual',
-		{
-			title: 'ИНН ФЛ',
-			generator: new InnIndividualGenerator(),
-		},
-	],
-	[
-		'innLegal',
-		{
-			title: 'ИНН ЮЛ',
-			generator: new InnLegalGenerator(),
-		},
-	],
-	[
-		'defaultPassword',
-		{
-			title: 'Стандартный пароль',
-			generator: new DefaultPasswordGenerator(),
-		},
-	],
-	[
-		'kpp',
-		{
-			title: 'КПП',
-			generator: new KppGenerator(),
-		},
-	],
-	[
-		'phoneNumber',
-		{
-			title: 'Номер телефона',
-			generator: new PhoneGenerator(),
-		},
-	],
-	[
-		'correspondentAccount',
-		{
-			title: 'Кореспондентский счёт',
-			generator: new CorrespondentAccountGenerator(),
-		},
-	],
-	[
-		'settlementAccount',
-		{
-			title: 'Расчётный счёт',
-			generator: new SettlementAccountGenerator(),
-		},
-	],
+    [
+        'snils',
+        {
+            title: 'СНИЛС',
+            generator: new SnilsGenerator(),
+        },
+    ],
+    [
+        'innIndividual',
+        {
+            title: 'ИНН ФЛ',
+            generator: new InnIndividualGenerator(),
+        },
+    ],
+    [
+        'innLegal',
+        {
+            title: 'ИНН ЮЛ',
+            generator: new InnLegalGenerator(),
+        },
+    ],
+    [
+        'defaultPassword',
+        {
+            title: 'Стандартный пароль',
+            generator: new DefaultPasswordGenerator(),
+        },
+    ],
+    [
+        'kpp',
+        {
+            title: 'КПП',
+            generator: new KppGenerator(),
+        },
+    ],
+    [
+        'phoneNumber',
+        {
+            title: 'Номер телефона',
+            generator: new PhoneGenerator(),
+        },
+    ],
+    [
+        'correspondentAccount',
+        {
+            title: 'Кореспондентский счёт',
+            generator: new CorrespondentAccountGenerator(),
+        },
+    ],
+    [
+        'settlementAccount',
+        {
+            title: 'Расчётный счёт',
+            generator: new SettlementAccountGenerator(),
+        },
+    ],
 ]);
