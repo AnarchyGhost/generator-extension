@@ -12,12 +12,20 @@
 - Номер телефона
 - Вставка пароля, сохраненного в настройках
 
-**Технологии**: JS, HTML
+**Технологии**: Plasmo, React, antd, TS
 
 **Тестировалось**: Chrome, Yandex Браузер
 
+**Собиралось**: node v20.11.1, yarn v1.22.21
+
 ![](demo.png)
 
+## Сборка
+```
+yarn install
+yarn build
+```
+Результат в build/chrome-mv3-prod
 ## Установка
 
 - [Chrome](https://developer.chrome.com/docs/extensions/get-started/tutorial/hello-world#load-unpacked)
@@ -44,9 +52,7 @@
 
 1. Подключение библиотек для генерации фейковых персональных данных (ФИО и т.д)
 2. Включение/Выключение генераторов
-3. Разработка UI для popup
-4. Кроссбраузерность
-5. Настройка Shortcut
+3. Кроссбраузерность
 ----
 
 [LICENSE](LICENSE)

@@ -1,0 +1,76 @@
+{
+  "name": "faker-browser-extension",
+  "displayName": "Генератор тестовых данных",
+  "version": "0.0.3",
+  "description": "Расширение для заполнения форм тестовыми данными",
+  "author": "Константин Маркелов <k.markelov@anarchyghost.com>",
+  "license": "Apache-2.0",
+  "scripts": {
+    "dev": "plasmo dev",
+    "build": "plasmo build",
+    "package": "plasmo package"
+  },
+  "dependencies": {
+    "@plasmohq/storage": "^1.9.3",
+    "antd": "^5.15.3",
+    "plasmo": "0.85.2",
+    "react": "18.2.0",
+    "react-dom": "18.2.0"
+  },
+  "devDependencies": {
+    "@ianvs/prettier-plugin-sort-imports": "4.1.1",
+    "@types/chrome": "0.0.258",
+    "@types/node": "20.11.5",
+    "@types/react": "18.2.48",
+    "@types/react-dom": "18.2.18",
+    "@typescript-eslint/eslint-plugin": "^7.3.1",
+    "@typescript-eslint/parser": "^7.3.1",
+    "eslint": "^8.0.1",
+    "eslint-config-standard-with-typescript": "^43.0.1",
+    "eslint-plugin-import": "^2.25.2",
+    "eslint-plugin-n": "^15.0.0 || ^16.0.0 ",
+    "eslint-plugin-promise": "^6.0.0",
+    "eslint-plugin-react": "^7.34.1",
+    "prettier": "3.2.4",
+    "typescript": "*"
+  },
+  "manifest": {
+    "host_permissions": [
+      "*://*/*"
+    ],
+    "permissions": [
+      "contextMenus",
+      "scripting"
+    ],
+    "commands": {
+      "snils": {
+        "suggested_key": {
+          "default": "Ctrl+Shift+1"
+        },
+        "description": "Вставить СНИЛС",
+        "global": false
+      },
+      "innIndividual": {
+        "suggested_key": {
+          "default": "Ctrl+Shift+2"
+        },
+        "description": "Вставить ИНН ФЛ",
+        "global": false
+      },
+      "innLegal": {
+        "suggested_key": {
+          "default": "Ctrl+Shift+3"
+        },
+        "description": "Вставить ИНН ЮЛ",
+        "global": false
+      },
+      "defaultPassword": {
+        "suggested_key": {
+          "default": "Ctrl+Shift+4"
+        },
+        "description": "Вставить Стандартный пароль",
+        "global": false
+      }
+    }
+  }
+}

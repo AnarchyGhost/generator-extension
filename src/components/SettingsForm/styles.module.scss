@@ -1,0 +1,11 @@
+.root {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+
+  &__buttons {
+    display: flex;
+    flex-direction: row;
+    gap: 8px;
+  }
+}
