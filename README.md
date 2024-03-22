@@ -27,7 +27,8 @@ yarn build
 ```
 Результат в build/chrome-mv3-prod
 ## Установка
-
+1. Скачайте упакованное расширение в разделе релизов
+2. Следуйте инструкции для вашего браузера:
 - [Chrome](https://developer.chrome.com/docs/extensions/get-started/tutorial/hello-world#load-unpacked)
 - [Yandex](https://yandex.ru/support/browser-mobile-android-phone/personal-settings/extensions.html) (Пункт Тестирование)
 
