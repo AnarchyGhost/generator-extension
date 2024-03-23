@@ -7,7 +7,7 @@ import {
 } from '../generators/list';
 import {setValueOnWebpage} from './utils';
 import {Storage} from '@plasmohq/storage';
-import {getDisabledGeneratorId} from '~src/constants/StorageConstants';
+import {getDisabledGeneratorId, StorageConstants} from '~src/constants/StorageConstants';
 
 export const addGeneratorsMenuItems = (): void => {
     chrome.runtime.onInstalled.addListener(async () => {
@@ -63,9 +63,25 @@ export const addOnClickForMenuItems = (): void => {
     });
 };
 
+export interface HotkeyInfo {
+    name: string,
+    shortcut: string,
+}
+
+export const reloadHotkeys = async () => {
+    const storage = new Storage();
+    const commands = await chrome.commands.getAll();
+    await storage.set(StorageConstants.HOTKEY_KEYS, commands.filter((it) => it.name !== '_execute_action').map(it => (
+        {
+            name: it.name,
+            shortcut: it.shortcut,
+        }
+    )));
+};
+
+
 export const addShortcuts = (): void => {
     chrome.commands.onCommand.addListener(async (command) => {
-        console.log('command', command);
         const storage = new Storage();
         const generatorId = await storage.get(command);
         if (![...generatorMap.keys()].includes(generatorId)) return;
