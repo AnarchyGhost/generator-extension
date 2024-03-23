@@ -1,3 +1,1 @@
-export interface Generator {
-    generate(): string | Promise<string>
-}
+export type Generator = () => string | Promise<string>

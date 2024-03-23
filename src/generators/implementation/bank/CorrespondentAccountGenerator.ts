@@ -1,9 +1,4 @@
-import { faker } from '../../faker';
-import type { Generator } from '../../Generator';
+import {faker} from '../../faker';
 
 //TODO должен заканчиваться на БИК банка
-export class CorrespondentAccountGenerator implements Generator {
-    generate(): string {
-        return `301${faker.string.numeric(17)}`;
-    }
-}
+export default (): string => `301${faker.string.numeric(17)}`;

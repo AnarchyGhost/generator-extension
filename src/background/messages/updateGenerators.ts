@@ -10,10 +10,10 @@ const handler: PlasmoMessaging.MessageHandler = async (req, res) => {
 
 export default handler;
 
-export async function sendUpdateGeneratorsMessage() {
+export const sendUpdateGeneratorsMessage = async () => {
     await sendToBackground({
         name: 'updateGenerators',
         body: {}
     });
 
-}
+};

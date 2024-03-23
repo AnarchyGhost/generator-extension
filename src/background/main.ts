@@ -9,21 +9,21 @@ import {setValueOnWebpage} from './utils';
 import {Storage} from '@plasmohq/storage';
 import {getDisabledGeneratorId} from '~src/constants/StorageConstants';
 
-export function addGeneratorsMenuItems(): void {
+export const addGeneratorsMenuItems = (): void => {
     chrome.runtime.onInstalled.addListener(async () => {
         await addGeneratorsMenuItemsRecursively(generatorConfiguration);
     });
-}
+};
 
-export async function reloadGeneratorsMenuItems(): Promise<void> {
+export const reloadGeneratorsMenuItems = async (): Promise<void> => {
     chrome.contextMenus.removeAll();
     await addGeneratorsMenuItemsRecursively(generatorConfiguration);
-}
+};
 
-export async function addGeneratorsMenuItemsRecursively(
+export const addGeneratorsMenuItemsRecursively = async (
     generators: Array<GeneratorListItem | GeneratorListGroup>,
     parentId?: string,
-): Promise<Array<string | number>> {
+): Promise<Array<string | number>> => {
     const storage = new Storage();
     const array = [];
     await Promise.all(generators.map(async (it) => {
@@ -54,16 +54,16 @@ export async function addGeneratorsMenuItemsRecursively(
         }
     }));
     return array;
-}
+};
 
-export function addOnClickForMenuItems() {
+export const addOnClickForMenuItems = (): void => {
     chrome.contextMenus.onClicked.addListener(async (item, tab) => {
         if (!tab) return;
         await setValueByGeneratorName(String(item.menuItemId), tab.id);
     });
-}
+};
 
-export function addShortcuts() {
+export const addShortcuts = (): void => {
     chrome.commands.onCommand.addListener((command) => {
         if (![...generatorMap.keys()].includes(command)) return;
         chrome.tabs.query(
@@ -73,15 +73,15 @@ export function addShortcuts() {
             },
         );
     });
-}
+};
 
-async function setValueByGeneratorName(generatorName: string, tabId: number) {
+const setValueByGeneratorName = async (generatorName: string, tabId: number): Promise<void> => {
     await chrome.scripting.executeScript({
         target: {
             tabId,
         },
         world: 'MAIN',
         func: setValueOnWebpage,
-        args: [await generatorMap.get(generatorName).generator.generate()],
+        args: [await generatorMap.get(generatorName).generator()],
     });
-}
+};

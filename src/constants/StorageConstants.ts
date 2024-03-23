@@ -3,6 +3,6 @@ export enum StorageConstants {
     DISABLED_GENERATORS = 'DISABLED_GENERATORS',
 }
 
-export function getDisabledGeneratorId(id: string): string {
+export const getDisabledGeneratorId = (id: string): string => {
     return `${StorageConstants.DISABLED_GENERATORS}_${id}`;
-}
+};

@@ -23,7 +23,7 @@ function Generator({id, title}) {
 
 
     return (
-        <Row>
+        <Row className={styles.root}>
             <Col span={12}><p>{title}</p></Col>
             <Col className={styles.root__switchColumn} span={12}>
                 <Switch checkedChildren={<CheckOutlined/>}
