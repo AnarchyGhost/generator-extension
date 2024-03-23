@@ -11,6 +11,7 @@
     "package": "plasmo package"
   },
   "dependencies": {
+    "@faker-js/faker": "^8.4.1",
     "@plasmohq/storage": "^1.9.3",
     "antd": "^5.15.3",
     "plasmo": "0.85.2",
