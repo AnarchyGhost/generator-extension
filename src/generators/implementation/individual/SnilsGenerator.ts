@@ -1,9 +1,10 @@
-import type { Generator } from '../Generator';
-import { randomWithLength } from '../utils';
+import { faker } from '~src/generators/faker';
+
+import type { Generator } from '../../Generator';
 
 export class SnilsGenerator implements Generator {
     generate(): string {
-        const number = randomWithLength(9);
+        const number = faker.string.numeric(9);
 
         const sum = number
             .split('')
