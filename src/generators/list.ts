@@ -189,9 +189,12 @@ function formGeneratorListRecursively(
     return array;
 }
 
+export const generatorList: Array<GeneratorListItem> = formGeneratorListRecursively(generatorConfiguration);
 export const generatorMap: Map<string, GeneratorListItem> = new Map(
-    formGeneratorListRecursively(generatorConfiguration).map((it) => [
+    generatorList.map((it) => [
         it.id,
         it,
     ]),
 );
+
+
