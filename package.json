@@ -45,28 +45,28 @@
       "scripting"
     ],
     "commands": {
-      "snils": {
+      "HOTKEY_1": {
         "suggested_key": {
           "default": "Ctrl+Shift+1"
         },
         "description": "Вставить СНИЛС",
         "global": false
       },
-      "innIndividual": {
+      "HOTKEY_2": {
         "suggested_key": {
           "default": "Ctrl+Shift+2"
         },
         "description": "Вставить ИНН ФЛ",
         "global": false
       },
-      "innLegal": {
+      "HOTKEY_3": {
         "suggested_key": {
           "default": "Ctrl+Shift+3"
         },
         "description": "Вставить ИНН ЮЛ",
         "global": false
       },
-      "defaultPassword": {
+      "HOTKEY_4": {
         "suggested_key": {
           "default": "Ctrl+Shift+4"
         },
