@@ -59,29 +59,32 @@ export const addGeneratorsMenuItemsRecursively = async (
 export const addOnClickForMenuItems = (): void => {
     chrome.contextMenus.onClicked.addListener(async (item, tab) => {
         if (!tab) return;
-        await setValueByGeneratorName(String(item.menuItemId), tab.id);
+        await setValueByGeneratorId(String(item.menuItemId), tab.id);
     });
 };
 
 export const addShortcuts = (): void => {
-    chrome.commands.onCommand.addListener((command) => {
-        if (![...generatorMap.keys()].includes(command)) return;
+    chrome.commands.onCommand.addListener(async (command) => {
+        console.log('command', command);
+        const storage = new Storage();
+        const generatorId = await storage.get(command);
+        if (![...generatorMap.keys()].includes(generatorId)) return;
         chrome.tabs.query(
             {active: true, currentWindow: true},
             async function (tabs) {
-                await setValueByGeneratorName(command, tabs[0].id);
+                await setValueByGeneratorId(generatorId, tabs[0].id);
             },
         );
     });
 };
 
-const setValueByGeneratorName = async (generatorName: string, tabId: number): Promise<void> => {
+const setValueByGeneratorId = async (generatorId: string, tabId: number): Promise<void> => {
     await chrome.scripting.executeScript({
         target: {
             tabId,
         },
         world: 'MAIN',
         func: setValueOnWebpage,
-        args: [await generatorMap.get(generatorName).generator()],
+        args: [await generatorMap.get(generatorId).generator()],
     });
 };
