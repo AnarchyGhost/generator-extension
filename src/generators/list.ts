@@ -1,23 +1,23 @@
-import { ContractNumberGenerator } from '~src/generators/implementation/contract/ContractNumberGenerator';
-import { RoleGenerator } from '~src/generators/implementation/employee/RoleGenerator';
-import { FirstNameFemaleGenerator } from '~src/generators/implementation/fullNameFemale/FirstNameFemaleGenerator';
-import { FullNameFemaleGenerator } from '~src/generators/implementation/fullNameFemale/FullNameFemaleGenerator';
-import { LastNameFemaleGenerator } from '~src/generators/implementation/fullNameFemale/LastNameFemaleGenerator';
-import { MiddleNameFemaleGenerator } from '~src/generators/implementation/fullNameFemale/MiddleNameFemaleGenerator';
-import { FirstNameMaleGenerator } from '~src/generators/implementation/fullNameMale/FirstNameMaleGenerator';
-import { FullNameMaleGenerator } from '~src/generators/implementation/fullNameMale/FullNameMaleGenerator';
-import { LastNameMaleGenerator } from '~src/generators/implementation/fullNameMale/LastNameMaleGenerator';
-import { MiddleNameMaleGenerator } from '~src/generators/implementation/fullNameMale/MiddleNameMaleGenerator';
+import ContractNumberGenerator from '~src/generators/implementation/contract/ContractNumberGenerator';
+import RoleGenerator from '~src/generators/implementation/employee/RoleGenerator';
+import FirstNameFemaleGenerator from '~src/generators/implementation/fullNameFemale/FirstNameFemaleGenerator';
+import FullNameFemaleGenerator from '~src/generators/implementation/fullNameFemale/FullNameFemaleGenerator';
+import LastNameFemaleGenerator from '~src/generators/implementation/fullNameFemale/LastNameFemaleGenerator';
+import MiddleNameFemaleGenerator from '~src/generators/implementation/fullNameFemale/MiddleNameFemaleGenerator';
+import FirstNameMaleGenerator from '~src/generators/implementation/fullNameMale/FirstNameMaleGenerator';
+import FullNameMaleGenerator from '~src/generators/implementation/fullNameMale/FullNameMaleGenerator';
+import LastNameMaleGenerator from '~src/generators/implementation/fullNameMale/LastNameMaleGenerator';
+import MiddleNameMaleGenerator from '~src/generators/implementation/fullNameMale/MiddleNameMaleGenerator';
 
-import type { Generator } from './Generator';
-import { CorrespondentAccountGenerator } from './implementation/bank/CorrespondentAccountGenerator';
-import { SettlementAccountGenerator } from './implementation/bank/SettlementAccountGenerator';
-import { InnLegalGenerator } from './implementation/company/InnLegalGenerator';
-import { KppGenerator } from './implementation/company/KppGenerator';
-import { DefaultPasswordGenerator } from './implementation/DefaultPasswordGenerator';
-import { InnIndividualGenerator } from './implementation/individual/InnIndividualGenerator';
-import { PhoneGenerator } from './implementation/individual/PhoneGenerator';
-import { SnilsGenerator } from './implementation/individual/SnilsGenerator';
+import type {Generator} from './Generator';
+import CorrespondentAccountGenerator from './implementation/bank/CorrespondentAccountGenerator';
+import SettlementAccountGenerator from './implementation/bank/SettlementAccountGenerator';
+import InnLegalGenerator from './implementation/company/InnLegalGenerator';
+import KppGenerator from './implementation/company/KppGenerator';
+import DefaultPasswordGenerator from './implementation/DefaultPasswordGenerator';
+import InnIndividualGenerator from './implementation/individual/InnIndividualGenerator';
+import PhoneGenerator from './implementation/individual/PhoneGenerator';
+import SnilsGenerator from './implementation/individual/SnilsGenerator';
 
 export interface GeneratorListNode {
     id: string;
@@ -31,12 +31,6 @@ export interface GeneratorListItem extends GeneratorListNode {
 export interface GeneratorListGroup extends GeneratorListNode {
     generatorList: Array<GeneratorListGroup | GeneratorListItem>;
 }
-
-export const isListItem = (
-    node: GeneratorListNode,
-): node is GeneratorListItem => {
-    return 'generator' in node;
-};
 
 export const isListGroup = (
     node: GeneratorListNode,
@@ -54,17 +48,17 @@ export const generatorConfiguration: Array<
             {
                 id: 'snils',
                 title: 'СНИЛС',
-                generator: new SnilsGenerator(),
+                generator: SnilsGenerator,
             },
             {
                 id: 'innIndividual',
                 title: 'ИНН ФЛ',
-                generator: new InnIndividualGenerator(),
+                generator: InnIndividualGenerator,
             },
             {
                 id: 'phoneNumber',
                 title: 'Номер телефона',
-                generator: new PhoneGenerator(),
+                generator: PhoneGenerator,
             },
         ],
     },
@@ -75,19 +69,19 @@ export const generatorConfiguration: Array<
             {
                 id: 'innLegal',
                 title: 'ИНН ЮЛ',
-                generator: new InnLegalGenerator(),
+                generator: InnLegalGenerator,
             },
             {
                 id: 'kpp',
                 title: 'КПП',
-                generator: new KppGenerator(),
+                generator: KppGenerator,
             },
         ],
     },
     {
         id: 'defaultPassword',
         title: 'Стандартный пароль',
-        generator: new DefaultPasswordGenerator(),
+        generator: DefaultPasswordGenerator,
     },
     {
         id: 'fullNameGroupMale',
@@ -95,23 +89,23 @@ export const generatorConfiguration: Array<
         generatorList: [
             {
                 id: 'lastNameMale',
-                title: 'Фамилия',
-                generator: new LastNameMaleGenerator(),
+                title: 'Фамилия (мужская)',
+                generator: LastNameMaleGenerator,
             },
             {
                 id: 'firstNameMale',
-                title: 'Имя',
-                generator: new FirstNameMaleGenerator(),
+                title: 'Имя (мужское)',
+                generator: FirstNameMaleGenerator,
             },
             {
                 id: 'middleNameMale',
-                title: 'Отчество',
-                generator: new MiddleNameMaleGenerator(),
+                title: 'Отчество (мужское)',
+                generator: MiddleNameMaleGenerator,
             },
             {
                 id: 'fullNameMale',
-                title: 'Полное ФИО',
-                generator: new FullNameMaleGenerator(),
+                title: 'Полное ФИО (мужское)',
+                generator: FullNameMaleGenerator,
             },
         ],
     },
@@ -121,23 +115,23 @@ export const generatorConfiguration: Array<
         generatorList: [
             {
                 id: 'lastNameFemale',
-                title: 'Фамилия',
-                generator: new LastNameFemaleGenerator(),
+                title: 'Фамилия (женская)',
+                generator: LastNameFemaleGenerator,
             },
             {
                 id: 'firstNameFemale',
-                title: 'Имя',
-                generator: new FirstNameFemaleGenerator(),
+                title: 'Имя (женское)',
+                generator: FirstNameFemaleGenerator,
             },
             {
                 id: 'middleNameFemale',
-                title: 'Отчество',
-                generator: new MiddleNameFemaleGenerator(),
+                title: 'Отчество (женское)',
+                generator: MiddleNameFemaleGenerator,
             },
             {
                 id: 'fullNameFemale',
-                title: 'Полное ФИО',
-                generator: new FullNameFemaleGenerator(),
+                title: 'Полное ФИО (женское)',
+                generator: FullNameFemaleGenerator,
             },
         ],
     },
@@ -148,7 +142,7 @@ export const generatorConfiguration: Array<
             {
                 id: 'role',
                 title: 'Должность',
-                generator: new RoleGenerator(),
+                generator: RoleGenerator,
             },
         ],
     },
@@ -159,7 +153,7 @@ export const generatorConfiguration: Array<
             {
                 id: 'contractNumber',
                 title: 'Номер договора',
-                generator: new ContractNumberGenerator(),
+                generator: ContractNumberGenerator,
             },
         ],
     },
@@ -170,12 +164,12 @@ export const generatorConfiguration: Array<
             {
                 id: 'correspondentAccount',
                 title: 'Кореспондентский счёт',
-                generator: new CorrespondentAccountGenerator(),
+                generator: CorrespondentAccountGenerator,
             },
             {
                 id: 'settlementAccount',
                 title: 'Расчётный счёт',
-                generator: new SettlementAccountGenerator(),
+                generator: SettlementAccountGenerator,
             },
         ],
     },

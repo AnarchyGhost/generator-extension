@@ -1,8 +1,4 @@
-import { faker } from '../../faker';
-import type { Generator } from '../../Generator';
+import {faker} from '../../faker';
 
-export class PhoneGenerator implements Generator {
-    generate(): string {
-        return `9${faker.string.numeric(9)}`;
-    }
-}
+export default (): string => `9${faker.string.numeric(9)}`;
+

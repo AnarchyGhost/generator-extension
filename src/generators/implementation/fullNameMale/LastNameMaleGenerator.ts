@@ -1,10 +1,6 @@
-import { Sex } from '@faker-js/faker';
+import {Sex} from '@faker-js/faker';
 
-import { faker } from '../../faker';
-import type { Generator } from '../../Generator';
+import {faker} from '../../faker';
 
-export class LastNameMaleGenerator implements Generator {
-    generate(): string {
-        return faker.person.lastName(Sex.Male);
-    }
-}
+
+export default (): string => faker.person.lastName(Sex.Male);

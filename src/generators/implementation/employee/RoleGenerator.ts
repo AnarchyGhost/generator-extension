@@ -1,5 +1,3 @@
-import type { Generator } from '../../Generator';
-
 const rolesArray = [
     'Генеральный директор',
     'Финансовый директор (заместитель директора по финансам)',
@@ -90,8 +88,5 @@ const rolesArray = [
     'Управляющий отделением',
 ];
 
-export class RoleGenerator implements Generator {
-    generate(): string {
-        return rolesArray[Math.floor(Math.random() * rolesArray.length)];
-    }
-}
+
+export default (): string => rolesArray[Math.floor(Math.random() * rolesArray.length)];
