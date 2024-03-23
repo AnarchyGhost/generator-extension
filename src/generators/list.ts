@@ -1,23 +1,23 @@
-import { ContractNumberGenerator } from '~src/generators/implementation/contract/ContractNumberGenerator';
-import { RoleGenerator } from '~src/generators/implementation/employee/RoleGenerator';
-import { FirstNameFemaleGenerator } from '~src/generators/implementation/fullNameFemale/FirstNameFemaleGenerator';
-import { FullNameFemaleGenerator } from '~src/generators/implementation/fullNameFemale/FullNameFemaleGenerator';
-import { LastNameFemaleGenerator } from '~src/generators/implementation/fullNameFemale/LastNameFemaleGenerator';
-import { MiddleNameFemaleGenerator } from '~src/generators/implementation/fullNameFemale/MiddleNameFemaleGenerator';
-import { FirstNameMaleGenerator } from '~src/generators/implementation/fullNameMale/FirstNameMaleGenerator';
-import { FullNameMaleGenerator } from '~src/generators/implementation/fullNameMale/FullNameMaleGenerator';
-import { LastNameMaleGenerator } from '~src/generators/implementation/fullNameMale/LastNameMaleGenerator';
-import { MiddleNameMaleGenerator } from '~src/generators/implementation/fullNameMale/MiddleNameMaleGenerator';
+import {ContractNumberGenerator} from '~src/generators/implementation/contract/ContractNumberGenerator';
+import {RoleGenerator} from '~src/generators/implementation/employee/RoleGenerator';
+import {FirstNameFemaleGenerator} from '~src/generators/implementation/fullNameFemale/FirstNameFemaleGenerator';
+import {FullNameFemaleGenerator} from '~src/generators/implementation/fullNameFemale/FullNameFemaleGenerator';
+import {LastNameFemaleGenerator} from '~src/generators/implementation/fullNameFemale/LastNameFemaleGenerator';
+import {MiddleNameFemaleGenerator} from '~src/generators/implementation/fullNameFemale/MiddleNameFemaleGenerator';
+import {FirstNameMaleGenerator} from '~src/generators/implementation/fullNameMale/FirstNameMaleGenerator';
+import {FullNameMaleGenerator} from '~src/generators/implementation/fullNameMale/FullNameMaleGenerator';
+import {LastNameMaleGenerator} from '~src/generators/implementation/fullNameMale/LastNameMaleGenerator';
+import {MiddleNameMaleGenerator} from '~src/generators/implementation/fullNameMale/MiddleNameMaleGenerator';
 
-import type { Generator } from './Generator';
-import { CorrespondentAccountGenerator } from './implementation/bank/CorrespondentAccountGenerator';
-import { SettlementAccountGenerator } from './implementation/bank/SettlementAccountGenerator';
-import { InnLegalGenerator } from './implementation/company/InnLegalGenerator';
-import { KppGenerator } from './implementation/company/KppGenerator';
-import { DefaultPasswordGenerator } from './implementation/DefaultPasswordGenerator';
-import { InnIndividualGenerator } from './implementation/individual/InnIndividualGenerator';
-import { PhoneGenerator } from './implementation/individual/PhoneGenerator';
-import { SnilsGenerator } from './implementation/individual/SnilsGenerator';
+import type {Generator} from './Generator';
+import {CorrespondentAccountGenerator} from './implementation/bank/CorrespondentAccountGenerator';
+import {SettlementAccountGenerator} from './implementation/bank/SettlementAccountGenerator';
+import {InnLegalGenerator} from './implementation/company/InnLegalGenerator';
+import {KppGenerator} from './implementation/company/KppGenerator';
+import {DefaultPasswordGenerator} from './implementation/DefaultPasswordGenerator';
+import {InnIndividualGenerator} from './implementation/individual/InnIndividualGenerator';
+import {PhoneGenerator} from './implementation/individual/PhoneGenerator';
+import {SnilsGenerator} from './implementation/individual/SnilsGenerator';
 
 export interface GeneratorListNode {
     id: string;
@@ -95,22 +95,22 @@ export const generatorConfiguration: Array<
         generatorList: [
             {
                 id: 'lastNameMale',
-                title: 'Фамилия',
+                title: 'Фамилия (мужская)',
                 generator: new LastNameMaleGenerator(),
             },
             {
                 id: 'firstNameMale',
-                title: 'Имя',
+                title: 'Имя (мужское)',
                 generator: new FirstNameMaleGenerator(),
             },
             {
                 id: 'middleNameMale',
-                title: 'Отчество',
+                title: 'Отчество (мужское)',
                 generator: new MiddleNameMaleGenerator(),
             },
             {
                 id: 'fullNameMale',
-                title: 'Полное ФИО',
+                title: 'Полное ФИО (мужское)',
                 generator: new FullNameMaleGenerator(),
             },
         ],
@@ -121,22 +121,22 @@ export const generatorConfiguration: Array<
         generatorList: [
             {
                 id: 'lastNameFemale',
-                title: 'Фамилия',
+                title: 'Фамилия (женская)',
                 generator: new LastNameFemaleGenerator(),
             },
             {
                 id: 'firstNameFemale',
-                title: 'Имя',
+                title: 'Имя (женское)',
                 generator: new FirstNameFemaleGenerator(),
             },
             {
                 id: 'middleNameFemale',
-                title: 'Отчество',
+                title: 'Отчество (женское)',
                 generator: new MiddleNameFemaleGenerator(),
             },
             {
                 id: 'fullNameFemale',
-                title: 'Полное ФИО',
+                title: 'Полное ФИО (женское)',
                 generator: new FullNameFemaleGenerator(),
             },
         ],
