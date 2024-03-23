@@ -1,4 +1,4 @@
-import {Col, Row, Switch} from 'antd';
+import {Flex, Switch} from 'antd';
 import React, {useCallback} from 'react';
 import {CheckOutlined, CloseOutlined} from '~node_modules/@ant-design/icons';
 import styles from './styles.module.scss';
@@ -23,16 +23,17 @@ function Generator({id, title}) {
 
 
     return (
-        <Row className={styles.root}>
-            <Col span={12}><p>{title}</p></Col>
-            <Col className={styles.root__switchColumn} span={12}>
+        <Flex className={styles.root}>
+            <p className={styles.root__title}>{title}</p>
+            <Flex align='center'>
                 <Switch checkedChildren={<CheckOutlined/>}
                     unCheckedChildren={
                         <CloseOutlined/>}
                     defaultChecked
                     onChange={onChange}
-                    value={disabledGenerators}/></Col>
-        </Row>
+                    value={disabledGenerators}/>
+            </Flex>
+        </Flex>
     );
 }
 
