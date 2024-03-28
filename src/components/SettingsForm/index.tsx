@@ -10,7 +10,7 @@ const { Title } = Typography;
 function SettingsForm() {
     const [defaultPasswordStorage, setDefaultPasswordStorage] =
         useStorage<string>(StorageConstants.DEFAULT_PASSWORD);
-    const [defaultPassword, setDefaultPassword] = useState('');
+    const [defaultPassword, setDefaultPassword] = useState(null);
 
     const updateDefaultPasswordLocal = useCallback(
         (event: { target: { value: string } }) => {
@@ -29,7 +29,7 @@ function SettingsForm() {
         setDefaultPassword(defaultPasswordStorage);
     }, [defaultPasswordStorage]);
 
-    if (!defaultPassword && defaultPasswordStorage) {
+    if (defaultPassword == null && defaultPasswordStorage) {
         setDefaultPassword(defaultPasswordStorage);
     }
 
