@@ -5,9 +5,9 @@ import {
     generatorMap,
     isListGroup,
 } from '../generators/list';
-import {setValueOnWebpage} from './utils';
-import {Storage} from '@plasmohq/storage';
-import {getDisabledGeneratorId, StorageConstants} from '~src/constants/StorageConstants';
+import { setValueOnWebpage } from './utils';
+import { Storage } from '@plasmohq/storage';
+import { getDisabledGeneratorId, StorageConstants } from '~src/constants/StorageConstants';
 
 export const addGeneratorsMenuItems = (): void => {
     chrome.runtime.onInstalled.addListener(async () => {
@@ -86,8 +86,8 @@ export const addShortcuts = (): void => {
         const generatorId = await storage.get(command);
         if (![...generatorMap.keys()].includes(generatorId)) return;
         chrome.tabs.query(
-            {active: true, currentWindow: true},
-            async function (tabs) {
+            { active: true, currentWindow: true },
+            async function(tabs) {
                 await setValueByGeneratorId(generatorId, tabs[0].id);
             },
         );
@@ -99,7 +99,6 @@ const setValueByGeneratorId = async (generatorId: string, tabId: number): Promis
         target: {
             tabId,
         },
-        world: 'MAIN',
         func: setValueOnWebpage,
         args: [await generatorMap.get(generatorId).generator()],
     });
