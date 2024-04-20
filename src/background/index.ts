@@ -1,5 +1,6 @@
-import {addGeneratorsMenuItems, addOnClickForMenuItems, addShortcuts,} from './main';
+import { addGeneratorsMenuItems, addOnClickForMenuItems, addShortcuts, reloadHotkeys } from './main';
 
 addGeneratorsMenuItems();
 addOnClickForMenuItems();
+reloadHotkeys().then();
 addShortcuts();
