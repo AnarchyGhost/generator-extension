@@ -1,7 +1,7 @@
 {
   "name": "faker-browser-extension",
   "displayName": "Генератор тестовых данных",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "Расширение для заполнения форм тестовыми данными",
   "author": "Константин Маркелов <k.markelov@anarchyghost.com>",
   "license": "Apache-2.0",
