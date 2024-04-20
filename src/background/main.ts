@@ -1,5 +1,6 @@
 import {
     generatorConfiguration,
+    generatorList,
     type GeneratorListGroup,
     type GeneratorListItem,
     generatorMap,
@@ -42,15 +43,19 @@ export const addGeneratorsMenuItemsRecursively = async (
                 array.push(contextMenu, ...child);
             }
         } else {
-            if (await storage.get<boolean>(getDisabledGeneratorId(it.id))) {
-                array.push(chrome.contextMenus.create({
-                    id: it.id,
-                    title: it.title,
-                    type: 'normal',
-                    parentId: parentId,
-                    contexts: ['editable'],
-                }));
+            const generatorKey = getDisabledGeneratorId(it.id);
+            const isEnabled = await storage.get<boolean>(generatorKey);
+            if (isEnabled === false) return;
+            if (isEnabled === undefined || isEnabled === null) {
+                await storage.set(generatorKey, true);
             }
+            array.push(chrome.contextMenus.create({
+                id: it.id,
+                title: it.title,
+                type: 'normal',
+                parentId: parentId,
+                contexts: ['editable'],
+            }));
         }
     }));
     return array;
@@ -71,12 +76,20 @@ export interface HotkeyInfo {
 export const reloadHotkeys = async () => {
     const storage = new Storage();
     const commands = await chrome.commands.getAll();
-    await storage.set(StorageConstants.HOTKEY_KEYS, commands.filter((it) => it.name !== '_execute_action').map(it => (
+    const transformedCommands = commands.filter((it) => it.name !== '_execute_action').map((it) => (
         {
             name: it.name,
             shortcut: it.shortcut,
+
         }
-    )));
+    ));
+    await storage.set(StorageConstants.HOTKEY_KEYS, transformedCommands);
+    await Promise.all(transformedCommands.map(async (it, idx) => {
+        const generatorAction = await storage.get(it.name);
+        if (!generatorAction) {
+            await storage.set(it.name, generatorList[idx]?.id);
+        }
+    }));
 };
 
 
