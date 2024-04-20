@@ -19,12 +19,21 @@ jobs:
         with:
           node-version: 20.x
           cache: 'yarn'
-      - name: Build With Yarn
+      - name: Build With Yarn For Chrome
         run: |
           yarn install
           yarn build
-      - name: Archive production artifacts
+      - name: Build With Yarn For Firefox
+        run: |
+          yarn install
+          yarn build --target=firefox-mv3
+      - name: Archive chrome production artifacts
         uses: actions/upload-artifact@v4
         with:
           name: generator-extension
           path: build/chrome-mv3-prod
+      - name: Archive firefox production artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: generator-extension
+          path: build/firefox-mv3-prod

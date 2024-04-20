@@ -24,7 +24,7 @@
 
 **Технологии**: Plasmo, React, antd, TS
 
-**Тестировалось**: Chrome, Yandex Браузер
+**Тестировалось**: Chrome, Yandex Браузер, Firefox
 
 **Собиралось**: node v20.11.1, yarn v1.22.21
 
@@ -37,16 +37,24 @@ yarn install
 yarn build
 ```
 
-Результат в build/chrome-mv3-prod
+Для сборки под Firefox [(подробнее)](https://docs.plasmo.com/framework/workflows/build)
+
+```
+yarn install
+yarn build --target=firefox-mv3
+```
+
+Результат в build/chrome-mv3-prod или build/firefox-mv3-prod
 
 ## Установка
 
-1. Скачайте упакованное расширение в разделе релизов
+1. Скачайте упакованное расширение в разделе релизов в соответствии с Вашим браузером
 2. Следуйте инструкции для вашего браузера:
 
 - [Chrome](https://developer.chrome.com/docs/extensions/get-started/tutorial/hello-world#load-unpacked)
 - [Yandex](https://yandex.ru/support/browser-mobile-android-phone/personal-settings/extensions.html) (Пункт
   Тестирование)
+- [Firefox](https://extensionworkshop.com/documentation/develop/temporary-installation-in-firefox/)
 
 ## Использование
 

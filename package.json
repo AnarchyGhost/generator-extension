@@ -37,6 +37,11 @@
     "typescript": "*"
   },
   "manifest": {
+    "browser_specific_settings": {
+      "gecko": {
+        "id": "generator@anarchyghost.com"
+      }
+    },
     "host_permissions": [
       "*://*/*"
     ],
@@ -49,29 +54,25 @@
         "suggested_key": {
           "default": "Ctrl+Shift+1"
         },
-        "description": "Вставить СНИЛС",
-        "global": false
+        "description": "Вставить СНИЛС"
       },
       "HOTKEY_2": {
         "suggested_key": {
           "default": "Ctrl+Shift+2"
         },
-        "description": "Вставить ИНН ФЛ",
-        "global": false
+        "description": "Вставить ИНН ФЛ"
       },
       "HOTKEY_3": {
         "suggested_key": {
           "default": "Ctrl+Shift+3"
         },
-        "description": "Вставить ИНН ЮЛ",
-        "global": false
+        "description": "Вставить ИНН ЮЛ"
       },
       "HOTKEY_4": {
         "suggested_key": {
           "default": "Ctrl+Shift+4"
         },
-        "description": "Вставить Стандартный пароль",
-        "global": false
+        "description": "Вставить Стандартный пароль"
       }
     }
   }
