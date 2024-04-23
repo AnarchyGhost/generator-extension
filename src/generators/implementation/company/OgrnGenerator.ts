@@ -8,7 +8,7 @@ export default (): string => {
         value += `0${subjectCode}`;
     else
         value += subjectCode;
-    value += faker.string.numeric(5);
+    value += faker.string.numeric(7);
     value += String(Number(value) % 11 % 10);
     return value;
 };
