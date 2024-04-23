@@ -9,7 +9,7 @@ import FullNameMaleGenerator from '~src/generators/implementation/fullNameMale/F
 import LastNameMaleGenerator from '~src/generators/implementation/fullNameMale/LastNameMaleGenerator';
 import MiddleNameMaleGenerator from '~src/generators/implementation/fullNameMale/MiddleNameMaleGenerator';
 
-import type {Generator} from './Generator';
+import type { Generator } from './Generator';
 import CorrespondentAccountGenerator from './implementation/bank/CorrespondentAccountGenerator';
 import SettlementAccountGenerator from './implementation/bank/SettlementAccountGenerator';
 import InnLegalGenerator from './implementation/company/InnLegalGenerator';
@@ -18,6 +18,7 @@ import DefaultPasswordGenerator from './implementation/DefaultPasswordGenerator'
 import InnIndividualGenerator from './implementation/individual/InnIndividualGenerator';
 import PhoneGenerator from './implementation/individual/PhoneGenerator';
 import SnilsGenerator from './implementation/individual/SnilsGenerator';
+import OgrnGenerator from '~src/generators/implementation/company/OgrnGenerator';
 
 export interface GeneratorListNode {
     id: string;
@@ -75,6 +76,11 @@ export const generatorConfiguration: Array<
                 id: 'kpp',
                 title: 'КПП',
                 generator: KppGenerator,
+            },
+            {
+                id: 'ogrn',
+                title: 'ОГРН',
+                generator: OgrnGenerator,
             },
         ],
     },
