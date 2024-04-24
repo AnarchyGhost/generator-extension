@@ -1,5 +1,5 @@
-import {Sex} from '@faker-js/faker';
+import { Sex } from '@faker-js/faker';
 
-import {faker} from '../../faker';
+import { faker } from '../../faker';
 
-export default (): string => faker.person.lastName(Sex.Male);
+export default (): string => faker.person.firstName(Sex.Male);
